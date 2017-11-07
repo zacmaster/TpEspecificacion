@@ -1,15 +1,13 @@
 package ui;
 
-
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
-//import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.Button.ClickEvent;
 
 public class VistaRegistro extends AbsoluteLayout implements View{
 
@@ -27,8 +25,8 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 	private TextField nombre = new TextField("Nombre:");
 	private TextField apellido = new TextField("Apellido:");
 	private TextField usuario = new TextField("Usuario:");
-	private TextField pass = new TextField("Contraseña:");
-	private TextField confPass = new TextField("Confirmar contraseña:");
+	private TextField pass = new TextField("Contraseï¿½a:");
+	private TextField confPass = new TextField("Confirmar contraseï¿½a:");
 	private TextField mail = new TextField("Mail:");
 	private TextField confMail = new TextField("Confirmar mail:");
 	
@@ -74,6 +72,7 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(VistaLogin.NAME);
 			}
+
 		});
 		botonRegistrar.addClickListener(new Button.ClickListener() {
 			private static final long serialVersionUID = 1L;

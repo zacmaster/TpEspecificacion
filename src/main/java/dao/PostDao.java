@@ -1,13 +1,13 @@
 package dao;
-import negocio.Post;
+
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import negocio.Post;
 
-
-import java.util.List;
 public class PostDao{
 	
 	private static EntityManagerFactory entityManagerFactory;

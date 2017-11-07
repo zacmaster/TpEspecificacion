@@ -1,23 +1,17 @@
 package ui;
-//import java.util.ArrayList;
 
-//import com.vaadin.annotations.Theme;
-//import com.vaadin.annotations.VaadinServletConfiguration;
-//import com.vaadin.server.VaadinRequest;
-//import com.vaadin.server.VaadinServlet;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.themes.ValoTheme;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
-
+import com.vaadin.ui.themes.ValoTheme;
 
 public class VistaLogin extends AbsoluteLayout implements View{
 	private static final long serialVersionUID = 1L;
@@ -27,13 +21,13 @@ public class VistaLogin extends AbsoluteLayout implements View{
 	AbsoluteLayout marco = new AbsoluteLayout();
 	HorizontalLayout header = new HorizontalLayout();
 	TextField usuario = new TextField("Usuario:");
-	PasswordField password = new PasswordField("Contraseña:");
+	PasswordField password = new PasswordField("ContraseÃ±a:");
 	Button botonEntrar = new Button("Entrar");
 	Button botonregistro = new Button("Registrarse");
 	FormLayout form = new FormLayout();
 	HorizontalLayout horizontalLayout = new HorizontalLayout();
 	Label textoHeader = new Label("Bienvenido a Data Mining!");
-	Label textoInicioSesion = new Label("Inicia sesión o registrate para ingresar! :)");
+	Label textoInicioSesion = new Label("Inicia sesiÃ³n o registrate para ingresar! :)");
 	
 	
 	

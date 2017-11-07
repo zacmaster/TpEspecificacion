@@ -2,11 +2,6 @@ package ui;
 
 import java.util.ArrayList;
 
-
-
-
-import antlr.collections.List;
-
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Label;
 
@@ -32,6 +27,7 @@ public class AreaPost extends AbsoluteLayout{
 //		etiqueta.addStyleName("backcolor");
 		etiqueta.addStyleName("wrapLine");
 		posts.add(etiqueta);
+		
 		reAcomodarEtiquetas();
 		etiqueta.addStyleName("post");
 		addComponent(etiqueta,"top: 0px");

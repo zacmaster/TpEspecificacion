@@ -11,16 +11,17 @@ import com.vaadin.ui.UI;
 
 import servicio.PostService;
 
-@SuppressWarnings("serial")
-@Theme("tp")
+@Theme("mytheme")
 public class TpUI extends UI {
-
+	private static final long serialVersionUID = 1L;
 	private Navigator navigator;
 	private PostService postService = new PostService();
 	
-	@WebServlet(value = "/*", asyncSupported = true)
-	@VaadinServletConfiguration(productionMode = false, ui = TpUI.class)
-	public static class Servlet extends VaadinServlet {
+	
+	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
+	@VaadinServletConfiguration(ui = TpUI.class, productionMode = false)
+	public static class TpUIServlet extends VaadinServlet {
+		private static final long serialVersionUID = 1L;
 	}
 	
 	

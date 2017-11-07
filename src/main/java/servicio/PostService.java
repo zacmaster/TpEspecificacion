@@ -1,8 +1,10 @@
 package servicio;
+
 import java.util.ArrayList;
 
 import dao.PostDao;
 import negocio.Post;
+
 public class PostService {
 	//crear instancia dao
 	public boolean textoOK(String texto) {

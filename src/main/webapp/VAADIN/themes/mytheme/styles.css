@@ -14780,11 +14780,22 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
+.mytheme .mymargins.v-margin-top {
+	padding-top: 40px;
+}
+
+.mytheme .fondoImagen {
+	background-image: url("img/paisaje.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
 .mytheme .quitarPadding {
 	margin: 0;
 }
 
 .mytheme .fondoAmarillo {
+	padding-bottom: 80px;
 	background-color: yellow;
 }
 
@@ -14811,7 +14822,8 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .post {
+	display: inline-block;
 	background-color: #75bfea;
-	padding: 5px;
+	margin-bottom: 50px;
 	border-radius: 4px;
 }

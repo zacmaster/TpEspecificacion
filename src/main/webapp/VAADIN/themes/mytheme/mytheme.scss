@@ -68,6 +68,12 @@ $v-border-radius: 2px;
   // }
   
   
+  
+  .fondoImagen{
+  	background-image:url("img/paisaje.jpg");
+  	background-size: cover;
+  	background-repeat: no-repeat;
+  }
   .quitarPadding{
   	margin: 0;
   }

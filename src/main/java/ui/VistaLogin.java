@@ -33,6 +33,8 @@ public class VistaLogin extends AbsoluteLayout implements View{
 	
 	public VistaLogin(){
 		agregarComponentes();
+		
+		addStyleName("fondoImagen");
 	}
 	
 	private void agregarComponentes(){

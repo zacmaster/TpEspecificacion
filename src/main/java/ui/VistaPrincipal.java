@@ -27,6 +27,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	public VistaPrincipal(PostService post) {
 		cargarComponentes();
 		cargarListeners();
+		addStyleName("fondoImagen");
 	}
 	
 	
@@ -65,7 +66,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 //		areaPost.setWidth("100%");
 //		areaPost.setHeight("100%");
 		principalLayout.addComponent(areaPost,"top: 150px");
-		areaPost.addStyleName("fondoVerde");
+//		areaPost.addStyleName("fondoVerde");
 	}
 	private void configuracionAreaTexto() {
 		areaTexto.setMaxLength(300);
@@ -81,7 +82,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 		marco.setHeight("150px");
 		marco.addComponent(areaTexto,"top: 35px");
 		marco.addComponent(botonPublicar,"top: 98px; right: 10px");
-		marco.addStyleName("fondoAmarillo");
+//		marco.addStyleName("fondoAmarillo");
 		marco.addStyleName("mymargins");
 		
 	}

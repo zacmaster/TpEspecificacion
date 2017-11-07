@@ -25,8 +25,8 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 	private TextField nombre = new TextField("Nombre:");
 	private TextField apellido = new TextField("Apellido:");
 	private TextField usuario = new TextField("Usuario:");
-	private TextField pass = new TextField("Contrase�a:");
-	private TextField confPass = new TextField("Confirmar contrase�a:");
+	private TextField pass = new TextField("Contraseña:");
+	private TextField confPass = new TextField("Confirmar contraseña:");
 	private TextField mail = new TextField("Mail:");
 	private TextField confMail = new TextField("Confirmar mail:");
 	
@@ -36,6 +36,7 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 		agregraComponentes();
 		agregarCampos();
 		cargarListeners();
+		addStyleName("fondoImagen");
 	}
 	
 	

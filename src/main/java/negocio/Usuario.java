@@ -1,10 +1,10 @@
 package negocio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+// import javax.persistence.Entity;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.Id;
 
-@Entity
+// @Entity
 public class Usuario {
 	private Long id;
 	private String nombre;
@@ -15,8 +15,8 @@ public class Usuario {
 	
 	
 	
-	@Id
-	@GeneratedValue
+	// @Id
+	// @GeneratedValue
     public Long getId() {
 		return id;
     }

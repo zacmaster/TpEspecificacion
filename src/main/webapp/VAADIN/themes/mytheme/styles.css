@@ -14807,6 +14807,7 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .backcolor {
 	background-color: #03a9f4;
+	border: solid black;
 }
 
 .mytheme .quitarMargen {

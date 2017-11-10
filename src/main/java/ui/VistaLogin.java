@@ -1,76 +1,52 @@
 package ui;
 
 import com.vaadin.navigator.View;
-import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.ui.AbsoluteLayout;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.CustomLayout;
+import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.themes.ValoTheme;
+import com.vaadin.ui.Button.ClickEvent;
 
-public class VistaLogin extends AbsoluteLayout implements View{
+public class VistaLogin extends GridLayout implements View{
+	private Button botonRegistro = new Button("Registrarse");
+	private Button botonIngreso = new Button("Ingresar");
+	
 	private static final long serialVersionUID = 1L;
-	protected static final String NAME = "login";
+	public static final String NAME = "prueba";
+
+	public VistaLogin() {
+		super(3,3);
+		cargarListeners();
+		cargarComponentes();
+	}
 	
-	
-	AbsoluteLayout marco = new AbsoluteLayout();
-	HorizontalLayout header = new HorizontalLayout();
-	TextField usuario = new TextField("Usuario:");
-	PasswordField password = new PasswordField("Contraseña:");
-	Button botonEntrar = new Button("Entrar");
-	Button botonregistro = new Button("Registrarse");
-	FormLayout form = new FormLayout();
-	HorizontalLayout horizontalLayout = new HorizontalLayout();
-	Label textoHeader = new Label("Bienvenido a Data Mining!");
-	Label textoInicioSesion = new Label("Inicia sesión o registrate para ingresar! :)");
-	
-	
-	
-	public VistaLogin(){
-		agregarComponentes();
+	private void  cargarComponentes() {
+		Panel loginPanel = new Panel("Bienvenido a DataMining!");
+		CustomLayout content = new CustomLayout("myLayout");
+		loginPanel.setContent(content);
+		loginPanel.setWidth("80%");
+		loginPanel.setHeight("400px");
+		loginPanel.setContent(content);
+
 		
+		content.addComponent(new Label("Inicia sesión o registrate para ingresar! "), "mensajeBienvenida");
+		content.addComponent(new TextField(), "username");
+		content.addComponent(new PasswordField(), "password");
+		content.addComponent(botonRegistro,"registerButton");
+		content.addComponent(botonIngreso, "okbutton");
+		
+		
+		setSizeFull();
+		addComponent(loginPanel,1,1);
 		addStyleName("fondoImagen");
 	}
 	
-	private void agregarComponentes(){
-		
-		setSizeFull();
-		horizontalLayout.setDefaultComponentAlignment(Alignment.TOP_CENTER);
-		horizontalLayout.setSpacing(true);
-		
-		
-		marco.addComponent(header);
-		form.addComponent(usuario);
-		form.addComponent(password);
-		marco.addComponent(form,"top: 30%; left: 9%");
-		marco.addComponent(horizontalLayout,"left: 25%; top: 80%");
-		marco.addStyleName("backcolor");
-		marco.setWidth("400px");
-		marco.setHeight("400px");
-		marco.addComponent(textoHeader,"left: 20%; top: 10%");
-		marco.addComponent(textoInicioSesion,"top: 25%; left: 15%");
-		addComponent(marco,"top: 20%; left: 32%");
-		
-		
-		
-		horizontalLayout.addComponent(botonregistro);
-		horizontalLayout.addComponent(botonEntrar);
-		
-				
-		cargarListeners();
-		textoHeader.addStyleName(ValoTheme.LABEL_LARGE);
-		textoHeader.addStyleName(ValoTheme.LABEL_BOLD);
-		
-	}
 	
-
 	private void cargarListeners() {
-		botonEntrar.addClickListener(new Button.ClickListener() {
+		botonIngreso.addClickListener(new Button.ClickListener() {
 			private static final long serialVersionUID = 1L;
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -78,7 +54,7 @@ public class VistaLogin extends AbsoluteLayout implements View{
 			}
 		});
 
-		botonregistro.addClickListener(new Button.ClickListener() {
+		botonRegistro.addClickListener(new Button.ClickListener() {
 			private static final long serialVersionUID = 1L;
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -87,11 +63,4 @@ public class VistaLogin extends AbsoluteLayout implements View{
 		});
 
 	}
-
-	@Override
-	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

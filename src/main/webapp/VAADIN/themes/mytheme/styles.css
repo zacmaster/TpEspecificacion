@@ -14784,6 +14784,10 @@ div.v-layout.v-horizontal.v-widget {
 	padding-top: 40px;
 }
 
+.mytheme .maximoAncho {
+	width: 300px;
+}
+
 .mytheme .fondoImagen {
 	background-image: url("img/paisaje.jpg");
 	background-size: cover;
@@ -14795,7 +14799,6 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .fondoAmarillo {
-	padding-bottom: 80px;
 	background-color: yellow;
 }
 
@@ -14803,6 +14806,10 @@ div.v-layout.v-horizontal.v-widget {
 	display: inline-block;
 	word-wrap: break-word;
 	white-space: -moz-pre-wrap;
+}
+
+.mytheme .fondoBlanco {
+	background-color: white;
 }
 
 .mytheme .backcolor {
@@ -14823,7 +14830,6 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .post {
-	display: inline-block;
 	background-color: #75bfea;
 	margin-bottom: 50px;
 	border-radius: 4px;

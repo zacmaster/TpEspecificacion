@@ -80,7 +80,6 @@ $v-border-radius: 2px;
   	margin: 0;
   }
   .fondoAmarillo{
-  	padding-bottom: 80px;
   	background-color: yellow;
   }
   
@@ -89,6 +88,10 @@ $v-border-radius: 2px;
   	word-wrap: break-word; /* IE  */
    	white-space: -moz-pre-wrap; /* Firefox */
    	
+   }
+   
+   .fondoBlanco{
+   	background-color: white;
    }
   .backcolor{
   	background-color: rgb(3, 169, 244);
@@ -105,7 +108,7 @@ $v-border-radius: 2px;
   }
   
   .post{
-  	display: inline-block;
+  	//display: inline-block;
   	background-color: #75bfea;
   	margin-bottom: 50px;
   	border-radius: 4px;

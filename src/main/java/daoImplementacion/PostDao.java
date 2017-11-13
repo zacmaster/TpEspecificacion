@@ -1,4 +1,4 @@
-package dao;
+package daoImplementacion;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class PostDao{
 		
 	}
 	private void setUp() {
-		entityManagerFactory = Persistence.createEntityManagerFactory( "dao.jpa" );
+		entityManagerFactory = Persistence.createEntityManagerFactory( "daoImplementacion.jpa" );
 	}
 	public PostDao() {
 	}

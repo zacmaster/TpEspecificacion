@@ -2,7 +2,7 @@ package servicio;
 
 import java.util.ArrayList;
 
-import dao.PostDao;
+import daoImplementacion.PostDao;
 import negocio.Post;
 
 public class PostService {

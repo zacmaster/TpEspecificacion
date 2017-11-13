@@ -33,8 +33,8 @@ public class TpUI extends UI {
 		navigator.addView(VistaRegistro.NAME, new VistaRegistro());
 		navigator.addView(VistaLogin.NAME, new VistaLogin());
 		navigator.addView(VistaPrueba.NAME, new VistaPrueba());
-//		navigator.navigateTo(VistaLogin.NAME);
-		navigator.navigateTo(VistaPrueba.NAME);
+		navigator.navigateTo(VistaLogin.NAME);
+//		navigator.navigateTo(VistaPrueba.NAME);
 		
 	}
 

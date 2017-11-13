@@ -2,21 +2,21 @@ package servicio;
 
 import java.util.ArrayList;
 
-import daoImplementacion.PostDao;
+import daoImplementacion.PostDaoViejo;
 import negocio.Post;
 
 public class PostService {
 	//crear instancia dao
 	public boolean textoOK(String texto) {
 		if(texto != ""){
-			PostDao postDao = new PostDao(new Post(texto));
+			PostDaoViejo postDao = new PostDaoViejo(new Post(texto));
 			return true;
 		}
 		return false;
 	}
 	
 	public ArrayList<String> leer(){
-		PostDao postDao = new PostDao();
+		PostDaoViejo postDao = new PostDaoViejo();
 		ArrayList<String> posts = new ArrayList<String>();
 		for (Post post : postDao.leer()) {
 			posts.add(post.getTexto());

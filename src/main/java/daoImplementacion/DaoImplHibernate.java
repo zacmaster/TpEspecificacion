@@ -2,30 +2,56 @@ package daoImplementacion;
 
 import daoInterfaz.GenericDao;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 public class DaoImplHibernate<E>  implements GenericDao<E>{
+	protected static EntityManagerFactory entityManagerFactory;
 
-	@Override
-	public E crear() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+public DaoImplHibernate() {
+}
+	
+	
 	@Override
 	public void guardar(E entidad) {
-		// TODO Auto-generated method stub
+		setUp();
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		entityManager.persist(entidad);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
+		tearDown();
 		
 	}
 
+	protected void tearDown() {
+		entityManagerFactory.close();
+	}
+
+
+	protected void setUp() {
+		entityManagerFactory = Persistence.createEntityManagerFactory( "daoImplementacion.jpa" );
+	}
+
+
 	@Override
 	public E get(String id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
-		
+	}
+
+
+	@Override
+	public List<E> leer() {
+		return null;
 	}
 
 }

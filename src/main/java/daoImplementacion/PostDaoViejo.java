@@ -8,11 +8,11 @@ import javax.persistence.Persistence;
 
 import negocio.Post;
 
-public class PostDao{
+public class PostDaoViejo{
 	
 	private static EntityManagerFactory entityManagerFactory;
 	
-	public PostDao(Post post) {
+	public PostDaoViejo(Post post) {
 		setUp();
 		persistir(post);
 		tearDown();
@@ -34,7 +34,7 @@ public class PostDao{
 	private void setUp() {
 		entityManagerFactory = Persistence.createEntityManagerFactory( "daoImplementacion.jpa" );
 	}
-	public PostDao() {
+	public PostDaoViejo() {
 	}
 	public List<Post> leer(){
 		

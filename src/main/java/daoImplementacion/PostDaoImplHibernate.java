@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import daoInterfaz.PostDao;
 import negocio.Post;
 
-public class PostDaoImplHibernate extends DaoImplHibernate<Post>implements PostDao {
+public class PostDaoImplHibernate extends DaoImplHibernate<Post> implements PostDao {
 
 	@Override
 	public List<Post> leer() {
@@ -29,7 +29,10 @@ public class PostDaoImplHibernate extends DaoImplHibernate<Post>implements PostD
 	
 	
 	@Override
-	public void guardar(Post entidad) {}
+	public void guardar(Post entidad) {
+		DaoImplHibernate<Post> di = new DaoImplHibernate<>();
+		di.guardar(entidad);
+	}
 	@Override
 	public Post get(String id) {
 		return null;

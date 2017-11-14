@@ -11,9 +11,8 @@ import javax.persistence.Persistence;
 public class DaoImplHibernate<E>  implements GenericDao<E>{
 	protected static EntityManagerFactory entityManagerFactory;
 
-public DaoImplHibernate() {
-}
-	
+	public DaoImplHibernate() {
+	}
 	
 	@Override
 	public void guardar(E entidad) {

@@ -2,21 +2,22 @@ package servicio;
 
 import java.util.ArrayList;
 
-import daoImplementacion.PostDaoViejo;
+import daoImplementacion.PostDaoImplHibernate;
 import negocio.Post;
 
 public class PostService {
 	//crear instancia dao
 	public boolean textoOK(String texto) {
 		if(texto != ""){
-			PostDaoViejo postDao = new PostDaoViejo(new Post(texto));
+			PostDaoImplHibernate postDao = new PostDaoImplHibernate();
+			postDao.guardar(new Post(texto));
 			return true;
 		}
 		return false;
 	}
 	
 	public ArrayList<String> leer(){
-		PostDaoViejo postDao = new PostDaoViejo();
+		PostDaoImplHibernate postDao = new PostDaoImplHibernate();
 		ArrayList<String> posts = new ArrayList<String>();
 		for (Post post : postDao.leer()) {
 			posts.add(post.getTexto());

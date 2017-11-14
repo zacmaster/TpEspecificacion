@@ -1,6 +1,6 @@
 package daoInterfaz;
 
-
-public interface PostDao<T> extends GenericDao<T>{
+import negocio.Post;
+public interface PostDao extends GenericDao<Post>{
 
 }

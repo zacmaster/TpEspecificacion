@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import daoInterfaz.PostDao;
 import negocio.Post;
 
-public class PostDaoImplHibernate extends DaoImplHibernate<Post>implements PostDao<Post> {
+public class PostDaoImplHibernate extends DaoImplHibernate<Post>implements PostDao {
 
 	@Override
 	public List<Post> leer() {

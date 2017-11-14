@@ -1,4 +1,4 @@
-package dao;
+package daoImplementacion;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 
 import negocio.Usuario;
 
-public class UsuarioDao {
+public class UsuarioDao2 {
 	private static EntityManagerFactory entityManagerFactory;
 	
 	

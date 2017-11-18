@@ -1,10 +1,13 @@
 package negocio;
 
-// import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+ import javax.persistence.Entity;
 // import javax.persistence.GeneratedValue;
 // import javax.persistence.Id;
 
-// @Entity
+@Entity
 public class Usuario {
 	private Long id;
 	private String nombre;
@@ -13,14 +16,17 @@ public class Usuario {
 	private String password;
 	private String mail;
 	
-	
-	
-	// @Id
-	// @GeneratedValue
+	public Usuario() {
+	}
+	@Id
+	@GeneratedValue
     public Long getId() {
 		return id;
     }
 	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -52,6 +58,5 @@ public class Usuario {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	
 
 }

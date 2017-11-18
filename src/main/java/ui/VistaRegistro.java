@@ -7,7 +7,11 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
+
+import negocio.Usuario;
+import servicio.UsuarioService;
 
 public class VistaRegistro extends AbsoluteLayout implements View{
 
@@ -24,11 +28,14 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 	
 	private TextField nombre = new TextField("Nombre:");
 	private TextField apellido = new TextField("Apellido:");
-	private TextField usuario = new TextField("Usuario:");
-	private TextField pass = new TextField("Contraseña:");
-	private TextField confPass = new TextField("Confirmar contraseña:");
+	private TextField nick = new TextField("Nick:");
+	private PasswordField pass = new PasswordField("Contraseña:");
+	private PasswordField confPass = new PasswordField("Confirmar contraseña:");
 	private TextField mail = new TextField("Mail:");
 	private TextField confMail = new TextField("Confirmar mail:");
+	
+	
+//			usuarioInstancia.getNombre(),usuarioInstancia.setNombre());
 	
 	
 	
@@ -56,7 +63,7 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 	private void agregarCampos(){
 		form.addComponent(nombre);
 		form.addComponent(apellido);
-		form.addComponent(usuario);
+		form.addComponent(nick);
 		form.addComponent(pass);
 		form.addComponent(confPass);
 		form.addComponent(mail);
@@ -80,6 +87,15 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
+				Usuario u = new Usuario();
+				u.setNombre(nombre.getValue());
+				u.setApellido(apellido.getValue());
+				u.setPassword(pass.getValue());
+				u.setNick(nick.getValue());
+				u.setMail(mail.getValue());
+				
+				UsuarioService us = new UsuarioService();
+				us.guardarUsuario(u);
 			}
 		});
 	}

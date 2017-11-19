@@ -17,14 +17,13 @@ public class Post extends AbsoluteLayout{
 	
 	public Post() {
 		setWidth("100%");
-		setHeight("200px");
+		setHeight("150px");
 		addStyleName("fondoRojo");
 		addComponent(fecha,"left: 10px; top: 10px;");
 		addComponent(usuario,"right: 20px;top: 10px;");
 		addComponent(meGusta,"right: 20px; bottom: 10px;");
 		addComponent(noMeGusta,"right: 90px; bottom: 10px;");
 		texto.addStyleName("post");
-//		texto.setHeight("30px");
 		marco.addComponent(texto,"top: 5px; left: 20px;");
 		marco.setHeight("40px");
 		marco.setWidth("100%");

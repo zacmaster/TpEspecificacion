@@ -17,7 +17,7 @@ public class PostPersistenciaTest {
 	public void persistir() {
 		PostDaoImplHibernate pdi = new PostDaoImplHibernate();
 		System.out.println("Sigue programando, puto!");
-		pdi.guardar(p);
+//		pdi.guardar(p);
 	}
 
 }

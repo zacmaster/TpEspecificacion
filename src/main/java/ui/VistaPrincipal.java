@@ -43,14 +43,14 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 		configuracionPanel();
 		cargarPosts();
 		cargarListeners();
+		
 	}
 
 
 
 
 	private void cargarPosts() {
-		// TODO Auto-generated method stub
-		
+		areaPost.addComponent(new Post());
 	}
 
 
@@ -74,7 +74,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 		areaTexto.setHeight("50px");
 		principalLayout.addComponent(marco,"top: 0px");
 //		principalLayout.addStyleName("fondoRojo");
-		areaPost.leerPosts(postService.leer());
+//		areaPost.leerPosts(postService.leer());
 	}
 
 	private void configuracionMarco(){
@@ -113,7 +113,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 			public void buttonClick(ClickEvent event) {
 				String texto = areaTexto.getValue();
 				if(postService.textoOK(texto))
-				areaPost.agregarPost(texto);
+//				areaPost.agregarPost(texto);
 				areaTexto.setValue("");
 			}
 		});

@@ -16,7 +16,7 @@
 
       
         <class>negocio.Post</class>
-       <!-- <class>negocio.Usuario</class> -->       
+    	<class>negocio.Usuario</class>       
         
 
         <properties>

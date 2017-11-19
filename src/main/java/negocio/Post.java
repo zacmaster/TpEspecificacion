@@ -8,7 +8,36 @@ import javax.persistence.Id;
 public class Post {
 	private Long id;
 	private String texto;
+	private String fecha;
+	private String nombreUsuario;
+	private String puntuacion;
 	
+	
+	
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+
+	public String getPuntuacion() {
+		return puntuacion;
+	}
+
+	public void setPuntuacion(String puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+
 	public Post(String texto) {
 		this.texto = texto;
 	}

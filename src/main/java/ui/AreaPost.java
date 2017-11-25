@@ -7,6 +7,7 @@ import com.vaadin.ui.Label;
 
 public class AreaPost extends AbsoluteLayout{
 	private static final long serialVersionUID = 1L;
+//	private ArrayList<Label>  posts = new ArrayList<Label>();
 	private ArrayList<Label>  posts = new ArrayList<Label>();
 	
 	public AreaPost() {

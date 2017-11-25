@@ -15,7 +15,7 @@ import servicio.PostService;
 public class TpUI extends UI {
 	private static final long serialVersionUID = 1L;
 	private Navigator navigator;
-	private PostService postService = new PostService();
+//	private PostService postService = new PostService();
 	
 	
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
@@ -29,10 +29,10 @@ public class TpUI extends UI {
 	protected void init(VaadinRequest request) {
 		
 		navigator = new Navigator(this,this);
-		navigator.addView(VistaPrincipal.NAME, new VistaPrincipal(postService));
-		navigator.addView(VistaRegistro.NAME, new VistaRegistro());
+//		navigator.addView(VistaPrincipal.NAME, new VistaPrincipal(postService));
+//		navigator.addView(VistaRegistro.NAME, new VistaRegistro());
 		navigator.addView(VistaLogin.NAME, new VistaLogin());
-		navigator.addView(VistaPrueba.NAME, new VistaPrueba());
+//		navigator.addView(VistaPrueba.NAME, new VistaPrueba());
 		navigator.navigateTo(VistaLogin.NAME);
 //		navigator.navigateTo(VistaPrincipal.NAME);
 		

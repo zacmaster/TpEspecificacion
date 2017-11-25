@@ -28,7 +28,8 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	private Label nickUsuarioActual = new Label();
 	private Label nombreUsuarioActual = new Label();
 	
-	public VistaPrincipal(PostService post) {
+//	public VistaPrincipal(PostService post) {
+		public VistaPrincipal() {
 		cargarComponentes();
 		cargarListeners();
 		addStyleName("fondoImagen");
@@ -124,7 +125,11 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 
 
 	private void clickbotonCerrarSesion() {
+		UsuarioService.usuarioActual = null;
+		getUI().getNavigator().removeView(VistaPrincipal.NAME);
 		getUI().getNavigator().navigateTo(VistaLogin.NAME);
+//		getUI().getNavigator().destroy();
+//		getUI().getNavigator().navigateTo(VistaLogin.NAME);
 	}
 
 

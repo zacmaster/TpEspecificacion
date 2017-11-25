@@ -66,12 +66,9 @@ public class VistaLogin extends GridLayout implements View{
 	private void clickbotonIngreso() {
 		if(seIngresaronDatos()) {
 			if(usuarioService.seAceptaLogin(userName.getValue(), password.getValue())) {
-//					TpUI.usuarioActual = "@"+UsuarioService.usuarioActual.getNick()+" "+
-//					"("+UsuarioService.usuarioActual.getNombre()+
-//					" "+UsuarioService.usuarioActual.getApellido()+")";
-//				System.out.println(TpUI.usuarioActual);
 				userName.clear();
 				password.clear();
+				getUI().getNavigator().addView(VistaPrincipal.NAME, new VistaPrincipal());
 				getUI().getNavigator().navigateTo(VistaPrincipal.NAME);	
 			}
 			else {

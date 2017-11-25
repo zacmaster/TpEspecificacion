@@ -14834,3 +14834,18 @@ div.v-layout.v-horizontal.v-widget {
 	margin-bottom: 50px;
 	border-radius: 4px;
 }
+
+.mytheme .estiloBarra {
+	background-color: #c6deec;
+}
+
+.mytheme .estiloNick {
+	font-size: 24px;
+	font-weight: bold;
+	font-family: Arial;
+}
+
+.mytheme .estiloNombre {
+	font-family: Arial;
+	font-size: 22px;
+}

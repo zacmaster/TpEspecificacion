@@ -5,6 +5,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 //import com.vaadin.ui.PopupView;
@@ -21,7 +22,6 @@ public class VistaLogin extends GridLayout implements View{
 	private Button botonIngreso = new Button("Ingresar");
 	private TextField userName = new TextField();
 	private PasswordField password = new PasswordField(	);
-//	private PopupView popup = new PopupView("Pop it up", new VerticalLayout());
 	
 	private static final long serialVersionUID = 1L;
 	public static final String NAME = "Login";
@@ -38,7 +38,6 @@ public class VistaLogin extends GridLayout implements View{
 		loginPanel.setWidth("80%");
 		loginPanel.setHeight("400px");
 		loginPanel.setContent(content);
-
 		
 		content.addComponent(new Label("Inicia sesión o registrate para ingresar! "), "mensajeBienvenida");
 		content.addComponent(userName,"username");
@@ -65,24 +64,26 @@ public class VistaLogin extends GridLayout implements View{
 	}
 
 	private void clickbotonIngreso() {
-		if(seIngresanDatos()) {
+		if(seIngresaronDatos()) {
 			if(usuarioService.seAceptaLogin(userName.getValue(), password.getValue())) {
-				getUI().getNavigator().navigateTo(VistaPrincipal.NAME);
-			}					
+//					TpUI.usuarioActual = "@"+UsuarioService.usuarioActual.getNick()+" "+
+//					"("+UsuarioService.usuarioActual.getNombre()+
+//					" "+UsuarioService.usuarioActual.getApellido()+")";
+//				System.out.println(TpUI.usuarioActual);
+				userName.clear();
+				password.clear();
+				getUI().getNavigator().navigateTo(VistaPrincipal.NAME);	
+			}
+			else {
+				Notification.show("Datos incorrectos", Notification.Type.ERROR_MESSAGE);
+				userName.clear();
+				password.clear();
+			}
 		}
-		else {
-//			popup.setPopupVisible(true);
-//			VerticalLayout popupContent = new VerticalLayout();
-//			popupContent.addComponent(new TextField("te logeaste para elc ulo"));
-//			popupContent.addComponent(new Button("cerrar"));
-//
-//			// The component itself
-//			PopupView popup = new PopupView("Pop it up", popupContent);
-//			addComponent(popup);
-		}
+		
 	}
 
-	private boolean seIngresanDatos() {
+	private boolean seIngresaronDatos() {
 		return !userName.isEmpty() && !password.isEmpty();
 	}
 	

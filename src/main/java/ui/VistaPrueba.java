@@ -10,6 +10,7 @@ public class VistaPrueba extends VerticalLayout implements View{
 	
 	Post post = new Post();
 	
+	
 	public VistaPrueba() {
 		addStyleName("fondoVerde");
 		addComponent(post);

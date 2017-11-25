@@ -4,7 +4,6 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.PasswordField;
@@ -73,33 +72,29 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 	
 	
 	private void cargarListeners(){
-		botonCancelar.addClickListener(new Button.ClickListener() {
-			private static final long serialVersionUID = 1L;
-			
-			@Override
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(VistaLogin.NAME);
-			}
-
-		});
-		botonRegistrar.addClickListener(new Button.ClickListener() {
-			private static final long serialVersionUID = 1L;
-			
-			@Override
-			public void buttonClick(ClickEvent event) {
-				Usuario u = new Usuario();
-				u.setNombre(nombre.getValue());
-				u.setApellido(apellido.getValue());
-				u.setPassword(pass.getValue());
-				u.setNick(nick.getValue());
-				u.setMail(mail.getValue());
-				
-				UsuarioService us = new UsuarioService();
-				us.guardarUsuario(u);
-			}
-		});
+		botonCancelar.addClickListener(clickEvent -> clickbotonCancelar());
+		botonRegistrar.addClickListener(clickEvent -> clickbotonRegistrar());
 	}
 	
+	
+	private void clickbotonRegistrar() {
+		Usuario u = new Usuario();
+		u.setNombre(nombre.getValue());
+		u.setApellido(apellido.getValue());
+		u.setPassword(pass.getValue());
+		u.setNick(nick.getValue());
+		u.setMail(mail.getValue());
+		
+		UsuarioService us = new UsuarioService();
+		us.guardarUsuario(u);
+	}
+
+
+	private void clickbotonCancelar() {
+		getUI().getNavigator().navigateTo(VistaLogin.NAME);
+	}
+
+
 	@Override
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub

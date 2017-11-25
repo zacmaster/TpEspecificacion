@@ -4,7 +4,6 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 
@@ -15,6 +14,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	
 	private static final long serialVersionUID = 1L;
 	protected static final String NAME = "Main";
+	
 	private Panel panelSuperior = new Panel();
 	private Button botonCerrarSesion = new Button("Cerrar Sesion");
 	private Button botonPublicar = new Button("Publicar");
@@ -97,30 +97,33 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	
 	
 	private void cargarListeners(){
-		botonCerrarSesion.addClickListener(new Button.ClickListener() {
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(VistaLogin.NAME);
-			}
-
-		});
-		botonPublicar.addClickListener(new Button.ClickListener() {
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				String texto = areaTexto.getValue();
-				if(postService.textoOK(texto))
-//				areaPost.agregarPost(texto);
-				areaTexto.setValue("");
-			}
-		});
+		botonCerrarSesion.addClickListener(clickEvent -> clickbotonCerrarSesion());
+		botonPublicar.addClickListener(clickEvent -> clickbotonPublicar());
 	}
 	
 	
 	
+
+
+
+
+
+
+	private void clickbotonPublicar() {
+		String texto = areaTexto.getValue();
+		if(postService.textoOK(texto))
+//		areaPost.agregarPost(texto);
+		areaTexto.setValue("");
+	}
+
+
+
+
+
+
+	private void clickbotonCerrarSesion() {
+		getUI().getNavigator().navigateTo(VistaLogin.NAME);
+	}
 
 
 

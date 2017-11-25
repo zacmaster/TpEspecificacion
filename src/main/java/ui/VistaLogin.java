@@ -20,7 +20,7 @@ public class VistaLogin extends GridLayout implements View{
 	private Button botonRegistro = new Button("Registrarse");
 	private Button botonIngreso = new Button("Ingresar");
 	private TextField userName = new TextField();
-	private PasswordField password = new PasswordField();
+	private PasswordField password = new PasswordField(	);
 //	private PopupView popup = new PopupView("Pop it up", new VerticalLayout());
 	
 	private static final long serialVersionUID = 1L;
@@ -65,9 +65,11 @@ public class VistaLogin extends GridLayout implements View{
 	}
 
 	private void clickbotonIngreso() {
-		if(usuarioService.seAceptaLogin(userName.getValue(), password.getValue())) {
-			getUI().getNavigator().navigateTo(VistaPrincipal.NAME);
-		}					
+		if(seIngresanDatos()) {
+			if(usuarioService.seAceptaLogin(userName.getValue(), password.getValue())) {
+				getUI().getNavigator().navigateTo(VistaPrincipal.NAME);
+			}					
+		}
 		else {
 //			popup.setPopupVisible(true);
 //			VerticalLayout popupContent = new VerticalLayout();
@@ -78,6 +80,10 @@ public class VistaLogin extends GridLayout implements View{
 //			PopupView popup = new PopupView("Pop it up", popupContent);
 //			addComponent(popup);
 		}
+	}
+
+	private boolean seIngresanDatos() {
+		return !userName.isEmpty() && !password.isEmpty();
 	}
 	
 	

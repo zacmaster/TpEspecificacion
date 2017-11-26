@@ -4,8 +4,6 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.TextArea;
 //import servicio.PostService;
 import servicio.UsuarioService;
@@ -16,20 +14,18 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	private static final long serialVersionUID = 1L;
 	protected static final String NAME = "Main";
 	
-	private AbsoluteLayout barraSuperior = new AbsoluteLayout();
-	private Button botonCerrarSesion = new Button("Cerrar Sesion");
+	private BarraSuperior barraSuperior = new BarraSuperior();
 	private Button botonPublicar = new Button("Publicar");
 	private TextArea areaTexto = new TextArea("¿Qué estás pensando?");
 	private AbsoluteLayout marco = new AbsoluteLayout();
 	private AbsoluteLayout principalLayout = new AbsoluteLayout();
 	private AreaPost areaPost = new AreaPost();
 //	private PostService postService = new PostService();
-	private HorizontalLayout usuarioLayout = new HorizontalLayout();
-	private Label nickUsuarioActual = new Label();
-	private Label nombreUsuarioActual = new Label();
+//	private Label nickUsuarioActual = new Label();
+//	private Label nombreUsuarioActual = new Label();
 	
 //	public VistaPrincipal(PostService post) {
-		public VistaPrincipal() {
+	public VistaPrincipal() {
 		cargarComponentes();
 		cargarListeners();
 		addStyleName("fondoImagen");
@@ -40,9 +36,9 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 		configuracionMarco();
 		configuracionAreaPost();
 		configuracionPrincipalLayout();
-		configuracionBarra();
 		cargarPosts();
 		cargarListeners();
+		addComponent(barraSuperior);
 	}
 
 	private void cargarPosts() {
@@ -81,34 +77,11 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 		
 	}
 
-	private void configuracionBarra() {
-		barraSuperior.setHeight("55px");
-		barraSuperior.setWidth("100%");
-		
-		nickUsuarioActual.addStyleName("estiloNick");
-		nombreUsuarioActual.addStyleName("estiloNombre");
-		barraSuperior.addStyleName("estiloBarra");
-		barraSuperior.addComponent(botonCerrarSesion,"top: 10px; right: 10px");
-		barraSuperior.addComponent(usuarioLayout,"top: 10px; left: 20px");
-		usuarioLayout.addComponent(nickUsuarioActual);
-		usuarioLayout.addComponent(nombreUsuarioActual);
-		
-		configuracionUsuarioActual();
-		addComponent(barraSuperior);
-//		addComponent(botonCerrarSesion,"right: 20px; top: 12px");
-	}
 	
 	private void cargarListeners(){
-		botonCerrarSesion.addClickListener(clickEvent -> clickbotonCerrarSesion());
 		botonPublicar.addClickListener(clickEvent -> clickbotonPublicar());
 	}
 	
-	private void configuracionUsuarioActual() {	
-	}
-	
-
-
-
 
 
 
@@ -133,13 +106,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 
 
 
-	private void clickbotonCerrarSesion() {
-		UsuarioService.usuarioActual = null;
-		getUI().getNavigator().removeView(VistaPrincipal.NAME);
-		getUI().getNavigator().navigateTo(VistaLogin.NAME);
-//		getUI().getNavigator().destroy();
-//		getUI().getNavigator().navigateTo(VistaLogin.NAME);
-	}
+	
 
 
 
@@ -148,8 +115,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		nickUsuarioActual.setValue("@"+UsuarioService.usuarioActual.getNick());
-		nombreUsuarioActual.setValue("("+UsuarioService.usuarioActual.getNombre()+" "+UsuarioService.usuarioActual.getApellido()+")");
+		
 	}
 
 }

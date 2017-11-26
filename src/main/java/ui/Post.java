@@ -26,7 +26,7 @@ public class Post extends AbsoluteLayout{
 		addComponent(noMeGusta,"right: 90px; bottom: 3px;");
 		addComponent(textoPuntaje,"left: 10px; bottom: 10px;");
 //		texto.addStyleName("post");
-		texto.setWidth("100px");
+		texto.setWidth("100%");
 		marco.addComponent(texto,"top: 5px; left: 20px;");
 		marco.setHeight("80px");
 		marco.setWidth("100%");

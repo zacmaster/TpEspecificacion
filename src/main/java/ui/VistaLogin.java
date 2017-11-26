@@ -60,6 +60,7 @@ public class VistaLogin extends GridLayout implements View{
 	}
 	
 	private void clickbotonRegistro() {
+		getUI().getNavigator().addView(VistaRegistro.NAME, new VistaRegistro());
 		getUI().getNavigator().navigateTo(VistaRegistro.NAME);
 	}
 

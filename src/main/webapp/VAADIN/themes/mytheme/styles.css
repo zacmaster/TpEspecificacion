@@ -14803,7 +14803,6 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .wrapLine {
-	display: inline-block;
 	word-wrap: break-word;
 	white-space: -moz-pre-wrap;
 }

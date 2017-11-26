@@ -91,6 +91,7 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 
 
 	private void clickbotonCancelar() {
+		getUI().getNavigator().removeView(VistaRegistro.NAME);
 		getUI().getNavigator().navigateTo(VistaLogin.NAME);
 	}
 

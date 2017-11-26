@@ -8,29 +8,39 @@ public class Post extends AbsoluteLayout{
 	private static final long serialVersionUID = 1L;
 	private Button meGusta = new Button(":)");
 	private Button noMeGusta = new Button(":(");
-	private Label fecha = new Label("14/12/2018");
-	private Label usuario = new Label("Usuario");
-	private Label texto = new Label("textooooo");
+	private Label fecha = new Label("");
+	private Label usuario = new Label("");
+	private Label texto = new Label();
 	private Label textoPuntaje = new Label("Puntuación: ");
-	private Label puntaje = new Label("0");
+	private Label puntaje = new Label("");
 	private AbsoluteLayout marco = new AbsoluteLayout();
 	
-	public Post() {
+	public Post(negocio.Post postNegocio) {
+		sincronizarDatos(postNegocio);
 		setWidth("100%");
 		setHeight("150px");
 		addStyleName("fondoRojo");
-		addComponent(fecha,"left: 10px; top: 10px;");
-		addComponent(usuario,"right: 20px;top: 10px;");
-		addComponent(meGusta,"right: 20px; bottom: 10px;");
-		addComponent(noMeGusta,"right: 90px; bottom: 10px;");
-		texto.addStyleName("post");
-		marco.addComponent(texto,"top: 5px; left: 20px;");
-		marco.setHeight("40px");
-		marco.setWidth("100%");
+		addComponent(fecha,"left: 10px; top: 0px;");
+		addComponent(usuario,"right: 20px;top: 0px;");
+		addComponent(meGusta,"right: 20px; bottom: 3px;");
+		addComponent(noMeGusta,"right: 90px; bottom: 3px;");
 		addComponent(textoPuntaje,"left: 10px; bottom: 10px;");
+//		texto.addStyleName("post");
+		texto.setWidth("100px");
+		marco.addComponent(texto,"top: 5px; left: 20px;");
+		marco.setHeight("80px");
+		marco.setWidth("100%");
 		addComponent(puntaje,"left: 100px; bottom: 10px;");
-		addComponent(marco,"top: 50px;");
+		addComponent(marco,"top: 25px;");
 		marco.addStyleName("fondoBlanco");
+	}
+
+	private void sincronizarDatos(negocio.Post postNegocio) {
+		System.out.println("dentro del metodo");
+		fecha.setValue(postNegocio.getFecha());
+		texto.setValue(postNegocio.getTexto());
+		usuario.setValue(postNegocio.getNickUsuario());
+		puntaje.setValue(postNegocio.getPuntuacion().toString());
 	}
 	
 }

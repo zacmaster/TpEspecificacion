@@ -7,7 +7,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextArea;
-import servicio.PostService;
+//import servicio.PostService;
 import servicio.UsuarioService;
 
 public class VistaPrincipal extends AbsoluteLayout implements View{
@@ -23,7 +23,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	private AbsoluteLayout marco = new AbsoluteLayout();
 	private AbsoluteLayout principalLayout = new AbsoluteLayout();
 	private AreaPost areaPost = new AreaPost();
-	private PostService postService = new PostService();
+//	private PostService postService = new PostService();
 	private HorizontalLayout usuarioLayout = new HorizontalLayout();
 	private Label nickUsuarioActual = new Label();
 	private Label nombreUsuarioActual = new Label();
@@ -46,7 +46,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	}
 
 	private void cargarPosts() {
-		areaPost.addComponent(new Post());
+//		areaPost.addComponent(new Post());
 	}
 
 	private void configuracionPrincipalLayout(){
@@ -114,9 +114,18 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 
 	private void clickbotonPublicar() {
 		String texto = areaTexto.getValue();
-		if(postService.textoOK(texto))
+		if(!texto.isEmpty()) {
+			negocio.Post postNegocio = new negocio.Post();
+//			System.out.println(postNegocio.getFecha());
+			postNegocio.setNickUsuario(UsuarioService.usuarioActual.getNick());
+			postNegocio.setTexto(texto);
+			Post post = new Post(postNegocio);
+			System.out.println(post);
+			areaPost.addComponent(post);
+			
+		}
 //		areaPost.agregarPost(texto);
-		areaTexto.setValue("");
+		areaTexto.clear();
 	}
 
 

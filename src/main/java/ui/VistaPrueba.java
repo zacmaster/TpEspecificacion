@@ -8,12 +8,12 @@ public class VistaPrueba extends VerticalLayout implements View{
 	protected static final String NAME = "Prueba";
 
 	
-	Post post = new Post();
+//	Post post = new Post();
 	
 	
 	public VistaPrueba() {
-		addStyleName("fondoVerde");
-		addComponent(post);
+//		addStyleName("fondoVerde");
+//		addComponent(post);
 	}
 
 

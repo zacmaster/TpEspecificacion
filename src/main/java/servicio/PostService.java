@@ -7,13 +7,9 @@ import negocio.Post;
 
 public class PostService {
 	//crear instancia dao
-	public boolean textoOK(String texto) {
-		if(texto != ""){
-			PostDaoImplHibernate postDao = new PostDaoImplHibernate();
-			postDao.guardar(new Post(texto));
-			return true;
-		}
-		return false;
+	public void guardar(String texto) {
+		PostDaoImplHibernate postDao = new PostDaoImplHibernate();
+		postDao.guardar(new Post(texto));
 	}
 	
 	public ArrayList<String> leer(){

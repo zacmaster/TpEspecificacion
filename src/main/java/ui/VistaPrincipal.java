@@ -1,5 +1,7 @@
 package ui;
 
+import java.util.ArrayList;
+
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
@@ -20,6 +22,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	private AbsoluteLayout marco = new AbsoluteLayout();
 	private AbsoluteLayout principalLayout = new AbsoluteLayout();
 	private AreaPost areaPost = new AreaPost();
+	private ArrayList<Post> posts = new ArrayList<>();
 //	private PostService postService = new PostService();
 //	private Label nickUsuarioActual = new Label();
 //	private Label nombreUsuarioActual = new Label();

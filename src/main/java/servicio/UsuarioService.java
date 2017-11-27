@@ -17,8 +17,6 @@ public class UsuarioService {
 	}
 	
 	public boolean seAceptaLogin(String usuario, String pass) {
-		System.out.println(usuario);
-		System.out.println(pass);
 		Usuario u = udih.consulta(usuario);
 		if(u != null) {
 			if(u.getPassword().equals(pass)) {
@@ -28,5 +26,14 @@ public class UsuarioService {
 		}
 		return false;
 		
+	}
+	public boolean seAceptaUsuario(String usuario) {
+		Usuario u = udih.consulta(usuario);
+		if(u != null) {
+			if(u.getNick().equals(usuario)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

@@ -1,11 +1,14 @@
 package ui;
 
+import javax.swing.text.html.HTMLDocument.HTMLReader.FormAction;
+
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 
@@ -21,6 +24,7 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 	private AbsoluteLayout marco = new AbsoluteLayout();
 //	private Label titulo = new Label("Complete los campos ");
 	
+	private UsuarioService usuarioService = new UsuarioService();
 	
 	private Button botonRegistrar = new Button("Registrar");
 	private Button botonCancelar = new Button("Volver");
@@ -78,17 +82,71 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 	
 	
 	private void clickbotonRegistrar() {
-		Usuario u = new Usuario();
-		u.setNombre(nombre.getValue());
-		u.setApellido(apellido.getValue());
-		u.setPassword(pass.getValue());
-		u.setNick(nick.getValue());
-		u.setMail(mail.getValue());
-		
-		UsuarioService us = new UsuarioService();
-		us.guardarUsuario(u);
+		if(camposCompletos()) {
+			if(usuarioValido()) {
+				if(coincidenPass()) {
+					if(coincidenMails()) {
+						if(Validadores.formatoPassValido(pass.getValue())) {
+							if(Validadores.formatoEmailValido(mail.getValue())) {
+								Usuario u = new Usuario();
+								u.setNombre(nombre.getValue());
+								u.setApellido(apellido.getValue());
+								u.setPassword(pass.getValue());
+								u.setNick(nick.getValue());
+								u.setMail(mail.getValue());
+								
+								UsuarioService us = new UsuarioService();
+								us.guardarUsuario(u);
+								
+								Notification.show("Se ha registrado exitosamente.", Notification.Type.TRAY_NOTIFICATION);
+							}
+							else {
+								Notification.show("Formato de email invalido.", Notification.Type.ERROR_MESSAGE);				
+							}
+						}
+						else {
+							Notification.show("Formato invalido de contraseña."
+									+ "\nDebe tener entre 8 y 16 caracteres."
+									+ "\nDebe tener al menos una letra mayuscula."
+									+ "\nDebe tener al menos un número."
+									+ "\nDebe tener al menos un caracter especial (@#$%^&+=).", Notification.Type.ERROR_MESSAGE);				
+						}
+					}
+					else {
+						Notification.show("Error al confirmar email.", Notification.Type.ERROR_MESSAGE);				
+					}
+				}
+				else {
+					Notification.show("Error al confirmar contraseña.", Notification.Type.ERROR_MESSAGE);				
+				}
+			}
+			else {
+				Notification.show("El nick ya esta en uso.", Notification.Type.ERROR_MESSAGE);
+			}
+		}
+		else {
+			Notification.show("Complete todos los campos.", Notification.Type.ERROR_MESSAGE);
+		}
 	}
-
+	
+	private boolean camposCompletos() {
+		return (!nombre.isEmpty() && !apellido.isEmpty() && !pass.isEmpty() && !nick.isEmpty() && !mail.isEmpty());
+	}
+	
+	private boolean usuarioValido()	{
+		if(usuarioService.seAceptaUsuario(nick.getValue())) {
+			return true;
+		}
+		return false;
+	}
+	
+	private boolean coincidenPass() {
+		return pass.getValue().equals(confPass.getValue());
+	}
+	
+	private boolean coincidenMails() {
+		return mail.getValue().equals(confMail.getValue());
+	}
 
 	private void clickbotonCancelar() {
 		getUI().getNavigator().removeView(VistaRegistro.NAME);

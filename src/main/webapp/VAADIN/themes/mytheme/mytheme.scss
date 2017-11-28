@@ -93,6 +93,12 @@ $v-border-radius: 2px;
   	background-color: rgb(3, 169, 244);
   	border: solid black 2px;
   }
+  .fondoPost{
+  	border-radius: 10px;
+  	border: solid 1px blue;
+  	background: rgb(198, 222, 236);
+  	opacity: 0.95;
+  }
   .quitarMargen{
   	margin: 0;
   }
@@ -108,11 +114,9 @@ $v-border-radius: 2px;
 	}
   }
   
-  .post{
-  	//display: inline-block;
-  	background-color: #75bfea;
-  	margin-bottom: 50px;
-  	border-radius: 4px;
+  .texto{
+  	color: black;
+  	font-family: Arial;
   }
   
   .estiloBarra {
@@ -123,6 +127,12 @@ $v-border-radius: 2px;
   	font-size: 24px;
   	font-weight: bold;
   	font-family: Arial;
+  }
+  .estiloTitulosPost {
+  	font-size: 18px;
+  	font-weight: bold;
+  	font-family: Arial;
+  	opacity: 1;
   }
   .estiloNombre{
   	font-family: Arial;

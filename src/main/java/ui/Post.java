@@ -4,7 +4,6 @@ import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 
-import javassist.compiler.MemberCodeGen;
 
 public class Post extends AbsoluteLayout{
 	private static final long serialVersionUID = 1L;
@@ -21,29 +20,30 @@ public class Post extends AbsoluteLayout{
 		sincronizarDatos(postNegocio);
 		setWidth("100%");
 		setHeight("150px");
-		addStyleName("fondoRojo");
+		addStyleName("fondoPost");
 		addComponent(fecha,"left: 10px; top: 0px;");
 		addComponent(usuario,"right: 20px;top: 0px;");
 		addComponent(meGusta,"right: 20px; bottom: 3px;");
 		addComponent(noMeGusta,"right: 90px; bottom: 3px;");
 		addComponent(textoPuntaje,"left: 10px; bottom: 10px;");
-//		texto.addStyleName("post");
 		texto.setWidth("100%");
 		marco.addComponent(texto,"top: 5px; left: 20px;");
 		marco.setHeight("80px");
 		marco.setWidth("100%");
-		addComponent(puntaje,"left: 100px; bottom: 10px;");
+		addComponent(puntaje,"left: 130px; bottom: 10px;");
 		addComponent(marco,"top: 25px;");
-		marco.addStyleName("fondoBlanco");
 		meGusta.addStyleName("estiloBoton");
 		noMeGusta.addStyleName("estiloBoton");
+		usuario.addStyleName("estiloTitulosPost");
+		fecha.addStyleName("estiloTitulosPost");
+		puntaje.addStyleName("estiloTitulosPost");
+		textoPuntaje.addStyleName("estiloTitulosPost");
 	}
 
 	private void sincronizarDatos(negocio.Post postNegocio) {
-		System.out.println("dentro del metodo");
 		fecha.setValue(postNegocio.getFecha());
 		texto.setValue(postNegocio.getTexto());
-		usuario.setValue(postNegocio.getNickUsuario());
+		usuario.setValue("@"+postNegocio.getNickUsuario());
 		puntaje.setValue(postNegocio.getPuntuacion().toString());
 	}
 	

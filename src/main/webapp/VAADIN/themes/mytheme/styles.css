@@ -14812,6 +14812,13 @@ div.v-layout.v-horizontal.v-widget {
 	border: solid black 2px;
 }
 
+.mytheme .fondoPost {
+	border-radius: 10px;
+	border: solid 1px blue;
+	background: #c6deec;
+	opacity: 0.95;
+}
+
 .mytheme .quitarMargen {
 	margin: 0;
 }
@@ -14828,10 +14835,9 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: scroll;
 }
 
-.mytheme .post {
-	background-color: #75bfea;
-	margin-bottom: 50px;
-	border-radius: 4px;
+.mytheme .texto {
+	color: black;
+	font-family: Arial;
 }
 
 .mytheme .estiloBarra {
@@ -14842,6 +14848,13 @@ div.v-layout.v-horizontal.v-widget {
 	font-size: 24px;
 	font-weight: bold;
 	font-family: Arial;
+}
+
+.mytheme .estiloTitulosPost {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Arial;
+	opacity: 1;
 }
 
 .mytheme .estiloNombre {

@@ -7,27 +7,20 @@ import negocio.Post;
 
 public class PostService {
 	//crear instancia dao
-	public void guardar(String texto) {
+	public void guardar(negocio.Post post) {
 		PostDaoImplHibernate postDao = new PostDaoImplHibernate();
-		postDao.guardar(new Post(texto));
+		postDao.guardar(post);
 	}
 	
-	public ArrayList<String> leer(){
+	public ArrayList<Post> leer(){
 		PostDaoImplHibernate postDao = new PostDaoImplHibernate();
-		ArrayList<String> posts = new ArrayList<String>();
+		ArrayList<Post> posts = new ArrayList<Post>();
 		for (Post post : postDao.leer()) {
-			posts.add(post.getTexto());
+			posts.add(post);
 		}
 		
 		return posts;
 	}
-	
-//	public static void main(String[] args) {
-//		System.out.println("estoy aca");
-//		PostService ps = new PostService();
-//		ps.textoOK("asdasdsad");
-//		
-//	}
 	
 
 }

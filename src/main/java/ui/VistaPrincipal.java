@@ -7,6 +7,8 @@ import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.TextArea;
+
+import servicio.PostService;
 //import servicio.PostService;
 import servicio.UsuarioService;
 
@@ -22,12 +24,9 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	private AbsoluteLayout marco = new AbsoluteLayout();
 	private AbsoluteLayout principalLayout = new AbsoluteLayout();
 	private AreaPost areaPost = new AreaPost();
-	private ArrayList<Post> posts = new ArrayList<>();
-//	private PostService postService = new PostService();
-//	private Label nickUsuarioActual = new Label();
-//	private Label nombreUsuarioActual = new Label();
-	
-//	public VistaPrincipal(PostService post) {
+	private PostService postService = new PostService();
+	private ArrayList<negocio.Post> postsNegocio = new ArrayList<>();
+	private ArrayList<Post> postsUI = new ArrayList<>();
 	public VistaPrincipal() {
 		cargarComponentes();
 		cargarListeners();
@@ -59,7 +58,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 //		areaPost.setWidth("100%");
 //		areaPost.setHeight("100%");
 		principalLayout.addComponent(areaPost,"top: 150px");
-//		areaPost.addStyleName("fondoVerde");
+		areaPost.addStyleName("fondoVerde");
 	}
 	private void configuracionAreaTexto() {
 		areaTexto.setMaxLength(300);
@@ -91,13 +90,11 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	private void clickbotonPublicar() {
 		String texto = areaTexto.getValue();
 		if(!texto.isEmpty()) {
-			negocio.Post postNegocio = new negocio.Post();
-//			System.out.println(postNegocio.getFecha());
-			postNegocio.setNickUsuario(UsuarioService.usuarioActual.getNick());
-			postNegocio.setTexto(texto);
-			Post post = new Post(postNegocio);
-			System.out.println(post);
-			areaPost.addComponent(post);
+			
+			
+			agregarNuevoPostUI(agregarPostNegocio(texto));
+//			System.out.println(post);
+//			areaPost.addComponent(post);
 			
 		}
 //		areaPost.agregarPost(texto);
@@ -108,17 +105,36 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 
 
 
-
-	
-
-
-
-
-
-
-	@Override
-	public void enter(ViewChangeEvent event) {
+	private void agregarNuevoPostUI(negocio.Post postNegocio) {
+		Post post = new Post(postNegocio);
+		reacomodarPost(post);
 		
 	}
 
+	private void reacomodarPost(ui.Post post) {
+		postsUI.add(post);
+	}
+
+	private negocio.Post agregarPostNegocio(String texto) {
+		negocio.Post postNegocio = new negocio.Post();
+		postNegocio.setNickUsuario(UsuarioService.usuarioActual.getNick());
+		postNegocio.setTexto(texto);
+		postService.guardar(postNegocio);
+		return postNegocio;
+	}
+
+
+	private void cargarPost() {
+		postsNegocio = postService.leer();
+		int distanciaTop = 0;
+		for (int i = postsNegocio.size()-1; i >= 0; i--) {
+			areaPost.addComponent(new Post(postsNegocio.get(i)),"top:"+distanciaTop+"px;");
+			distanciaTop += 155;
+		}
+	}
+
+	@Override
+	public void enter(ViewChangeEvent event) {
+		cargarPost();	
+	}
 }

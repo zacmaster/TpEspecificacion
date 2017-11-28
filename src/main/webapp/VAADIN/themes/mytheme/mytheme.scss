@@ -76,9 +76,6 @@ $v-border-radius: 2px;
   	background-size: cover;
   	background-repeat: no-repeat;
   }
-  .quitarPadding{
-  	margin: 0;
-  }
   .fondoAmarillo{
   	background-color: yellow;
   }
@@ -105,6 +102,11 @@ $v-border-radius: 2px;
   .fondoVerde{
   	background-color: green;
   }
+  .layoutScrollable{
+  	.v-absolutelayout-wrapper {
+	overflow: scroll;
+	}
+  }
   
   .post{
   	//display: inline-block;
@@ -126,4 +128,18 @@ $v-border-radius: 2px;
   	font-family: Arial;
   	font-size: 22px;
   }
+	.v-absolutelayout {
+	overflow: auto;
+	}
+	.estiloBoton{
+		width: 38px;
+		height: 38px;
+		transform: rotate(90deg);
+		border-radius: 100%;
+	}
+	
+	
+	
+	  
+
 }

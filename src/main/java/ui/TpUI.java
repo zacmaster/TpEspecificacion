@@ -29,13 +29,10 @@ public class TpUI extends UI {
 	protected void init(VaadinRequest request) {
 		
 		navigator = new Navigator(this,this);
-//		navigator.addView(VistaPrincipal.NAME, new VistaPrincipal(postService));
-//		navigator.addView(VistaRegistro.NAME, new VistaRegistro());
-//		navigator.addView(VistaLogin.NAME, new VistaLogin());
-		navigator.addView(VistaPrueba.NAME, new VistaPrueba());
-		navigator.navigateTo(VistaPrueba.NAME);
-//		navigator.navigateTo(VistaLogin.NAME);
-//		navigator.navigateTo(VistaPrincipal.NAME);
+		navigator.addView(VistaLogin.NAME, new VistaLogin());
+//		navigator.addView(VistaPrueba.NAME, new VistaPrueba());
+//		navigator.navigateTo(VistaPrueba.NAME);
+		navigator.navigateTo(VistaLogin.NAME);
 		
 	}
 

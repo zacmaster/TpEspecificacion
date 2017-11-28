@@ -14794,10 +14794,6 @@ div.v-layout.v-horizontal.v-widget {
 	background-repeat: no-repeat;
 }
 
-.mytheme .quitarPadding {
-	margin: 0;
-}
-
 .mytheme .fondoAmarillo {
 	background-color: yellow;
 }
@@ -14828,6 +14824,10 @@ div.v-layout.v-horizontal.v-widget {
 	background-color: green;
 }
 
+.mytheme .layoutScrollable .v-absolutelayout-wrapper {
+	overflow: scroll;
+}
+
 .mytheme .post {
 	background-color: #75bfea;
 	margin-bottom: 50px;
@@ -14847,4 +14847,15 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .estiloNombre {
 	font-family: Arial;
 	font-size: 22px;
+}
+
+.mytheme .v-absolutelayout {
+	overflow: auto;
+}
+
+.mytheme .estiloBoton {
+	width: 38px;
+	height: 38px;
+	transform: rotate(90deg);
+	border-radius: 100%;
 }

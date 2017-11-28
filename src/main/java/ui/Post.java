@@ -4,6 +4,8 @@ import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 
+import javassist.compiler.MemberCodeGen;
+
 public class Post extends AbsoluteLayout{
 	private static final long serialVersionUID = 1L;
 	private Button meGusta = new Button(":)");
@@ -33,6 +35,8 @@ public class Post extends AbsoluteLayout{
 		addComponent(puntaje,"left: 100px; bottom: 10px;");
 		addComponent(marco,"top: 25px;");
 		marco.addStyleName("fondoBlanco");
+		meGusta.addStyleName("estiloBoton");
+		noMeGusta.addStyleName("estiloBoton");
 	}
 
 	private void sincronizarDatos(negocio.Post postNegocio) {

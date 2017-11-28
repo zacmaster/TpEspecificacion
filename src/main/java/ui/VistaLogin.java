@@ -49,7 +49,6 @@ public class VistaLogin extends GridLayout implements View{
 		
 		setSizeFull();
 		addComponent(loginPanel,1,1);
-//		addComponent(popup);
 		addStyleName("fondoImagen");
 	}
 	

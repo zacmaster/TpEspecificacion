@@ -14,7 +14,6 @@ import com.vaadin.ui.UI;
 public class TpUI extends UI {
 	private static final long serialVersionUID = 1L;
 	private Navigator navigator;
-//	private PostService postService = new PostService();
 	
 	
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

@@ -109,6 +109,9 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 						us.guardarUsuario(u);
 							
 						Notification.show("Se ha registrado exitosamente.", Notification.Type.TRAY_NOTIFICATION);
+						
+						limpiarCampos();
+						getUI().getNavigator().navigateTo(VistaLogin.NAME);
 		}	}	}	
 		
 		if(error != -1) {					
@@ -145,6 +148,16 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 			return "Formato invalido de contraseña.\nDebe tener entre 4 y 8 caracteres.\nDebe tener al menos un número.";
 		}
 	}
+	
+	private void limpiarCampos() {
+		nombre.clear();
+		apellido.clear();
+		nick.clear();
+		pass.clear();
+		confPass.clear();
+		mail.clear();
+		confMail.clear();
+	}
 	private void clickbotonCancelar() {
 		getUI().getNavigator().removeView(VistaRegistro.NAME);
 		getUI().getNavigator().navigateTo(VistaLogin.NAME);
@@ -153,7 +166,6 @@ public class VistaRegistro extends AbsoluteLayout implements View{
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 	

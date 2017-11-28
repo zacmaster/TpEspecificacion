@@ -1,15 +1,12 @@
 package daoImplementacion;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import daoInterfaz.PostDao;
 import negocio.Post;
-import negocio.Usuario;
 
 public class PostDaoImplHibernate extends DaoImplHibernate<Post> implements PostDao {
 

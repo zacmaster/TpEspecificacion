@@ -1,6 +1,7 @@
 package negocio;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ public class Post {
 	private Integer puntuacion;
 	
 	public Post() {
-		fecha = LocalDate.now().toString();
+		fecha = LocalDate.now().toString()+" "+LocalTime.now().getHour()+":"+LocalTime.now().getMinute();
 		puntuacion = 0;
 	}
 	

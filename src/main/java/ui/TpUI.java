@@ -9,7 +9,6 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
-import servicio.PostService;
 
 @Theme("mytheme")
 public class TpUI extends UI {

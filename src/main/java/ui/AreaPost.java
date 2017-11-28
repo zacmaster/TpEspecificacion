@@ -3,7 +3,6 @@ package ui;
 import java.util.ArrayList;
 
 import com.vaadin.ui.AbsoluteLayout;
-import com.vaadin.ui.Label;
 
 import servicio.PostService;
 import servicio.UsuarioService;
@@ -35,7 +34,8 @@ public class AreaPost extends AbsoluteLayout{
 			Post postUI = new Post(postsNegocio.get(i));
 			postsUI.add(postUI);
 			addComponent(postUI,"top:"+distanciaTop+"px;");
-			distanciaTop += 155;
+			distanciaTop += 125;
+//			distanciaTop += 155; //distancia para 300 caracateres
 		}
 	}
 	
@@ -46,6 +46,7 @@ public class AreaPost extends AbsoluteLayout{
 		postService.guardar(postNegocio);
 		return postNegocio;
 	}
+	
 	
 	
 	

@@ -1,12 +1,15 @@
 package daoImplementacion;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 import daoInterfaz.PostDao;
 import negocio.Post;
+import negocio.Usuario;
 
 public class PostDaoImplHibernate extends DaoImplHibernate<Post> implements PostDao {
 
@@ -40,12 +43,27 @@ public class PostDaoImplHibernate extends DaoImplHibernate<Post> implements Post
 	@Override
 	public void delete(String id) {
 	}
+
+
+
+	@Override
+	public void actualizarPuntaje(Long id,Integer puntaje) {
+		setUp();
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		String consulta = "UPDATE Post p set p.puntuacion = :nuevoPuntaje where p.id = :id";
+		Query query = entityManager.createQuery(consulta);
+		query.setParameter("nuevoPuntaje", puntaje);
+		query.setParameter("id",id);
+		int updateCount = query.executeUpdate();
+		System.out.println(updateCount);
+		
+		
+				
+		tearDown();
+	}
 	
-//	public static void main(String[] args) {
-//		Post p = new Post("Hola");
-//		PostDaoImplHibernate pdi = new PostDaoImplHibernate();
-//		pdi.guardar(p);
-//	}
+	
 
 	
 }

@@ -8,7 +8,14 @@ public class Validadores {
 	private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
-	private static final String PATTERN_PASS = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=])(?=\\S+$).{8,16}$";
+//	private static final String PATTERN_PASS = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=])(?=\\S+$).{8,16}$";
+//	Formato invalido de contraseña."
+//	+ "\nDebe tener entre 8 y 16 caracteres."
+//	+ "\nDebe tener al menos una letra mayuscula."
+//	+ "\nDebe tener al menos un número."
+//	+ "\nDebe tener al menos un caracter especial (@#$%^&+=)
+	
+	private static final String PATTERN_PASS = "^(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{4,8}$";
 	
 	public static boolean formatoEmailValido(String email) {
 		

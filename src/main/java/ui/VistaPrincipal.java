@@ -74,10 +74,7 @@ public class VistaPrincipal extends AbsoluteLayout implements View{
 	private void clickbotonPublicar() {
 		String texto = areaTexto.getValue();
 		if(!texto.isEmpty()) {
-			
-			
-			areaPost.agregarNuevoPostUI(areaPost.agregarPostNegocio(texto));
-			
+			areaPost.agregarNuevoPostUI(texto);
 		}
 		areaTexto.clear();
 	}

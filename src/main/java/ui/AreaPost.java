@@ -22,13 +22,26 @@ public class AreaPost extends AbsoluteLayout{
 		setHeight("700px");
 	}
 
-	public void agregarNuevoPostUI(negocio.Post agregarPostNegocio) {
-		
+	public void agregarNuevoPostUI(String texto) {
+		Post postUI = new Post(agregarPostNegocio(texto));
+		postsUI.add(postUI);
+		reordenarPost();
 	}
 	
 	
+	private void reordenarPost() {
+		removeAllComponents();
+		int distanciaTop = 0;
+		for (int i = postsUI.size()-1; i >= 0; i--) {
+			addComponent(postsUI.get(i),"top:"+distanciaTop+"px;");
+			distanciaTop += 125;
+		}
+		
+	}
+
 	public void cargarPost() {
 		postsNegocio = postService.leer();
+		
 		int distanciaTop = 0;
 		for (int i = postsNegocio.size()-1; i >= 0; i--) {
 			Post postUI = new Post(postsNegocio.get(i));
@@ -39,7 +52,7 @@ public class AreaPost extends AbsoluteLayout{
 		}
 	}
 	
-	public negocio.Post agregarPostNegocio(String texto) {
+	private negocio.Post agregarPostNegocio(String texto) {
 		negocio.Post postNegocio = new negocio.Post();
 		postNegocio.setNickUsuario(UsuarioService.usuarioActual.getNick());
 		postNegocio.setTexto(texto);
